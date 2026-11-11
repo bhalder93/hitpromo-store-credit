@@ -1,0 +1,30 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+application_url = "https://example.com"
+client_id = "45379c683ce541718154fd5eaa93c444"
+embedded = true
+name = "Store Credit"
+handle = "hitpromo-store-credit"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+
+scopes = "write_products,read_customers,read_store_credit_accounts,read_store_credit_account_transactions,read_orders,write_store_credit_account_transactions"
+
+[webhooks]
+api_version = "2027-01"
+
+[[webhooks.subscriptions]]
+topics = ["app/uninstalled"]
+uri = "/webhooks/app/uninstalled"
+
+[[webhooks.subscriptions]]
+topics = ["app/scopes_update"]
+uri = "/webhooks/app/scopes_update"
+
+
+[auth]
+redirect_urls = ["https://example.com/api/auth"]
+
+[build]
+automatically_update_urls_on_dev = true
